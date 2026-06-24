@@ -86,7 +86,7 @@
             margin-top: 68px;
             min-height: 75vh;
             /* 調整遮罩透明度至 0.4 ~ 0.5，讓背景圖更明顯，並加入圓潤卡片樣式確保文字清晰 */
-            background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,0)), url('images/Warroom.png') no-repeat center center/cover;
+            background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,0)), url('images/Warroom.jpg') no-repeat center center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -194,9 +194,11 @@
 
         /* 產業經驗區塊 */
         .experience-grid {
-            display: grid;
-            /* 將 300px 改為 220px */
-            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+            /*display: grid;*/
+            display: flex;       /* 改為 flex 排版 */
+            flex-wrap: wrap;     /* 允許換行 */
+            /* 將 300px 改為 220px 
+            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));*/
             gap: 30px;
         }
 
@@ -205,6 +207,13 @@
             padding: 25px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+
+            /* 關鍵設定：設定最小寬度（代替原本的 minmax），並讓卡片自動伸展等高 */
+            flex: 1 1 330px;     
+            
+            /* 確保卡片內部內容也能撐滿高度 */
+            display: flex;
+            flex-direction: column;
         }
 
         .exp-box h3 {
@@ -216,6 +225,9 @@
         .exp-box ul {
             list-style-position: inside;
             color: #555;
+
+            margin: 0;           /* 移除預設邊距 */
+            flex-grow: 1;        /* 如果你想讓列表區塊也長滿卡片高度，可加這行 */   
         }
 
         .exp-box li {
@@ -335,7 +347,6 @@
                     面板
                     LED
                     太陽能
-                    DNA Lab
                     PCB</p>
                 </div>
 
@@ -389,7 +400,7 @@
                 <h3>EAP 自動化連線服務</h3>
                 <ul>
                     <li>標準/非標準 SECS/GEM 設備連線</li>
-                    <li>製程數據採集與數據庫整合</li>
+                    <li>製程數據採集與異質資料庫整合</li>
                     <li>智慧工廠基礎自動化架構建置</li>
                 </ul>
             </div>
